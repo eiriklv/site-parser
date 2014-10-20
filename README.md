@@ -16,7 +16,7 @@ Parses websites and creates JSON data-structures.
 var debug = require('debug')('site-parser:testapp');
 var util = require('util');
 
-// your template (see 'Example Template further down..')
+// your template (see 'Example Template' section)
 var template = require('./template');
 
 // require into your project
