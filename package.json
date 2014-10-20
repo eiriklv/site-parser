@@ -1,0 +1,29 @@
+{
+  "name": "site-parser",
+  "version": "0.1.0",
+  "main": "./lib/index",
+  "description": "Parse websites with templates",
+  "dependencies": {
+    "colors": "1.0.x",
+    "async": "0.9.x",
+    "debug": "2.0.x",
+    "request": "2.45.0",
+    "cheerio": "0.17.0",
+    "html-entities": "1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/eiriklv/site-parser.git"
+  },
+  "keywords": [
+    "scraper",
+    "parser",
+    "site",
+    "crawler"
+  ],
+  "author": "Eirik Vullum <evullum@gmail.com> (http://www.evconsult.no/)"
+}
