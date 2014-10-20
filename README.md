@@ -2,7 +2,8 @@ Site-Parser - Parse Websites with Templates
 ====================================================
 
 #### TODO
-Create proper documentation of the template options and workings..
+* Create proper documentation of the template options and workings
+* Add test suite with Jest/Jasmine
 
 #### Introduction:
 Parses websites and creates JSON data-structures.
