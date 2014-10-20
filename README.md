@@ -24,7 +24,7 @@ var SiteParser = require('site-parser');
 
 // create an instance
 var siteParser = new SiteParser({
-    timeOut: 5000, // timout for polling the site
+    timeOut: 5000, // timeout for polling the site
     agent: null // insert an optional http agent here
 });
 
