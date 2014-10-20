@@ -1,4 +1,4 @@
-Site-Parser - Parse Websites with Templates
+Parse Websites with Templates
 ====================================================
 
 #### TODO
