@@ -3,7 +3,7 @@ var util = require('util');
 var site = require('./template');
 var SiteParser = require('../lib');
 
-var siteParser = new SiteParser({
+var siteParser = SiteParser({
     timeOut: 5000
 });
 
