@@ -7,19 +7,9 @@ var siteParser = new SiteParser({
     timeOut: 5000
 });
 
-siteParser.on('data', function (result) {
-    debug('got updated data');
-    debug(util.inspect(result, { colors: true, depth: null }));
-});
-
-siteParser.on('error', function (err) {
-    debug('got an error');
-    debug(util.inspect(err));
-});
-
 debug('running scraper');
 
-siteParser.parse(site, {
-    id: 56,
-    rev: 23456
+siteParser.parse(site, function(err, entries) {
+    if (err) return debug(err);
+    debug(util.inspect(entries, { colors: true }));
 });
