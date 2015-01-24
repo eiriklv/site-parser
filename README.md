@@ -1,4 +1,4 @@
-Parse Websites with Templates
+Parse Websites using custom JSON Templates
 ====================================================
 
 #### TODO
@@ -12,44 +12,20 @@ Parses websites and creates JSON data-structures.
 #### How to use it:
 
 ```js
-// logging dependencies
 var debug = require('debug')('site-parser:testapp');
 var util = require('util');
-
-// your template (see 'Example Template' section)
-var template = require('./template');
-
-// require into your project
+var site = require('./template');
 var SiteParser = require('site-parser');
 
-// create an instance
 var siteParser = new SiteParser({
-    timeOut: 5000, // timeout for polling the site
-    agent: null // insert an optional http agent here
+    timeOut: 5000
 });
 
-// attach listener to 'data' event (all your results will end up here)
-siteParser.on('data', function (result) {
-    debug('got some data!');
-    
-    debug(util.inspect(result, {
-        colors: true,
-        depth: null
-    }));
-});
+debug('running scraper');
 
-// attach a listener to the 'error' event (all errors will end up here)
-siteParser.on('error', function (err) {
-    debug('got an error');
-    debug(util.inspect(err));
-});
-
-// call the 'parse' function to perform the parsing
-// you can also pass optional meta-data as the second parameter,
-// which can be used to identify your results
-siteParser.parse(template, {
-    id: 56,
-    rev: 23456
+siteParser.parse(site, function(err, entries) {
+    if (err) return debug(err);
+    debug(util.inspect(entries, { colors: true }));
 });
 ```
 
@@ -112,36 +88,30 @@ siteParser.parse(template, {
 #### Example Output:
 
 ```js
-{
-    meta: {
-        id: 56,
-        rev: 23456
-    },
-    output: [{
-        origin: 'http://www.newyorker.com/',
-        url: 'http://www.newyorker.com/magazine/2014/10/27/alan-bean-plus-four',
-        author: 'Tom Hanks',
-        title: '“Alan Bean Plus Four”',
-        description: '“When I tell people that I’ve seen the far side of the moon, they often say, ‘You mean the dark side,’ as though I’d fallen under the spell of Darth Vader or Pink Floyd.”',
-        image: 'http://www.newyorker.com/wp-content/uploads/2014/10/141027_r25654-728-375-4.jpg',
-        ranking: 1
-    }, {
-        origin: 'http://www.newyorker.com/',
-        url: 'http://www.newyorker.com/magazine/2014/10/27/ebola-wars',
-        author: 'Richard Preston',
-        title: 'The Ebola Wars',
-        description: 'As the Ebola epidemic widens, the virus is mutating. Geneticists are racing to keep up.',
-        image: 'http://www.newyorker.com/wp-content/uploads/2014/10/141027_r25672-320-240.jpg',
-        ranking: 2
-    }, {
-        origin: 'http://www.newyorker.com/',
-        url: 'http://www.newyorker.com/magazine/2014/10/27/voting-numbers',
-        author: 'Jelani Cobb',
-        title: 'Who’s Missing from the Midterms?',
-        description: 'Why our government doesn’t look like the people it’s supposed to represent.',
-        image: 'http://www.newyorker.com/wp-content/uploads/2014/10/141027_r25680illurgb-320-240.jpg',
-        ranking: 3
-    }
-    .....]
+[{
+    origin: 'http://www.newyorker.com/',
+    url: 'http://www.newyorker.com/magazine/2014/10/27/alan-bean-plus-four',
+    author: 'Tom Hanks',
+    title: '“Alan Bean Plus Four”',
+    description: '“When I tell people that I’ve seen the far side of the moon, they often say, ‘You mean the dark side,’ as though I’d fallen under the spell of Darth Vader or Pink Floyd.”',
+    image: 'http://www.newyorker.com/wp-content/uploads/2014/10/141027_r25654-728-375-4.jpg',
+    ranking: 1
+}, {
+    origin: 'http://www.newyorker.com/',
+    url: 'http://www.newyorker.com/magazine/2014/10/27/ebola-wars',
+    author: 'Richard Preston',
+    title: 'The Ebola Wars',
+    description: 'As the Ebola epidemic widens, the virus is mutating. Geneticists are racing to keep up.',
+    image: 'http://www.newyorker.com/wp-content/uploads/2014/10/141027_r25672-320-240.jpg',
+    ranking: 2
+}, {
+    origin: 'http://www.newyorker.com/',
+    url: 'http://www.newyorker.com/magazine/2014/10/27/voting-numbers',
+    author: 'Jelani Cobb',
+    title: 'Who’s Missing from the Midterms?',
+    description: 'Why our government doesn’t look like the people it’s supposed to represent.',
+    image: 'http://www.newyorker.com/wp-content/uploads/2014/10/141027_r25680illurgb-320-240.jpg',
+    ranking: 3
 }
+.....]
 ```
