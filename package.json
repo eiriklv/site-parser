@@ -6,7 +6,7 @@
   "dependencies": {
     "colors": "1.0.x",
     "async": "0.9.x",
-    "debug": "2.0.x",
+    "debug": "2.1.x",
     "request": "2.45.0",
     "cheerio": "0.17.0",
     "html-entities": "1.1.1"
