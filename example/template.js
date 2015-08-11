@@ -1,37 +1,27 @@
 exports = module.exports = {
-    name: 'New Yorker',
-    url: 'http://www.newyorker.com/',
+    active: true,
+    name: 'Dagbladet',
+    url: 'http://www.dagbladet.no/',
+    charset: 'iso-8859-1',
     format: 'desktop',
     template: {
         containers: [{
-            selector: 'article',
+            selector: 'div.ref div.container',
             elements: [{
                 name: 'url',
                 type: 'url',
                 occurence: 'first',
                 required: true,
                 items: [{
-                    selector: 'section h2 a',
+                    selector: 'h2 a',
                     attribute: 'href'
-                }]
-            }, {
-                name: 'author',
-                occurence: 'first',
-                items: [{
-                    selector: 'section h3 span a'
                 }]
             }, {
                 name: 'title',
                 required: true,
                 occurence: 'first',
                 items: [{
-                    selector: 'section h2 a'
-                }]
-            }, {
-                name: 'description',
-                occurence: 'first',
-                items: [{
-                    selector: 'p.p-summary',
+                    selector: 'h2 a'
                 }]
             }, {
                 name: 'image',
@@ -39,11 +29,11 @@ exports = module.exports = {
                 occurence: 'first',
                 fallback: null,
                 items: [{
-                    selector: 'figure a img',
+                    selector: 'img.boxImg',
                     attribute: 'src'
                 }, {
-                    selector: 'figure a img',
-                    attribute: 'data-lazy-src'
+                    selector: 'img.lazy',
+                    attribute: 'src'
                 }]
             }]
         }]
