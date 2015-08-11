@@ -1,15 +1,16 @@
 {
   "name": "site-parser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./lib/index",
   "description": "Parse websites with templates",
   "dependencies": {
-    "colors": "1.0.x",
     "async": "0.9.x",
-    "debug": "2.1.x",
-    "request": "2.45.0",
     "cheerio": "0.17.0",
-    "html-entities": "1.1.1"
+    "colors": "1.0.x",
+    "debug": "2.1.x",
+    "html-entities": "1.1.1",
+    "iconv-lite": "0.4.11",
+    "request": "2.45.0"
   },
   "devDependencies": {},
   "scripts": {
