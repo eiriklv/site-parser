@@ -1,6 +1,6 @@
 {
   "name": "site-parser",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "main": "./lib/index",
   "description": "Parse websites with templates",
   "dependencies": {
