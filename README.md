@@ -11,6 +11,9 @@ Parses websites and creates JSON data-structures.
 
 #### How to use it:
 
+If you want debug output
+* `export DEBUG='*'` (OSX/Unix)
+
 ```js
 var debug = require('debug')('site-parser:testapp');
 var util = require('util');
