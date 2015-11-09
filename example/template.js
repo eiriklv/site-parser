@@ -28,6 +28,13 @@ exports = module.exports = {
           "selector": "h3"
         }]
       }, {
+        "name": "ingress",
+        "required": true,
+        "occurence": "all",
+        "items": [{
+          "selector": "div.am-articleEntry-summary"
+        }]
+      }, {
         "name": "image",
         "type": "url",
         "occurence": "first",
@@ -35,6 +42,9 @@ exports = module.exports = {
         "items": [{
           "selector": "a img",
           "attribute": "src"
+        }, {
+          "selector": "a img",
+          "attribute": "data-src"
         }]
       }]
     }]
